@@ -8,7 +8,8 @@ export async function scrapper(){
   // https://www.npmjs.com/package/node-base64-image
   // https://freeimage.host/page/api
 
-  const query = "shingeki no kyojin"
+
+  const query = "memes"
   const parsedQuery = query.split(' ').join('%20');
   const url = `https://www.google.com/search?tbm=isch&q=${parsedQuery}`;
 
@@ -43,29 +44,10 @@ export async function scrapper(){
     const nextBtn = await page.waitForSelector('#Sva75c > div.DyeYj > div > div.dFMRD > div.pxAole > div.tvh9oe.BIB1wf > c-wiz > div > div > div > div:nth-child(2) > div > div > div.Ox7icf > div:nth-child(1) > div > a:nth-child(2)');
     if (nextBtn === null || nextBtn === undefined) continue;
     await nextBtn.click();
-    // await page.waitForTimeout(1000);
     await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  // const imagesSelector = await imagesContainerSelector.$$('div');
-  // if (imagesSelector === null) return;
-  // console.log(imagesSelector.length)
-  // const randomImage = Math.floor(Math.random() * imagesSelector.length);
-
-  // // en imagesSelector[randomImage] dar click al elemento HTML que sea img
-  // const imgSelector = await imagesSelector[randomImage].$('a:first-child');
-  // if (imgSelector === null) return;
-  // await imgSelector.click();
-
-  // const img = await page.waitForSelector('#Sva75c > div.DyeYj > div > div.dFMRD > div.pxAole > div.tvh9oe.BIB1wf > c-wiz > div > div > div > div.n4hgof > div.MAtCL.PUxBg > a > img.r48jcc.pT0Scc.iPVvYb');
-
-  // if (img === null) return;
-
-  // const src = await img.getProperty('src').then((res) => res.jsonValue());
-  // console.log(src);
-
 
   setTimeout(async () => {
-    // await page.screenshot({ path: 'screenshot.png' });
     await browser.close();
   }, 5000);
 }
@@ -80,6 +62,3 @@ async function scrollPage(page: Page){
 }
 
 scrapper();
-
-// google-images-scrapper
-// this scrapper will get images from google images search and return each 
